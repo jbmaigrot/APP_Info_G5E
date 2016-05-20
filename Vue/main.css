@@ -1,0 +1,273 @@
+@font-face {
+    font-family: "kimarche";
+    src: url(test8.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "droi";
+    src: url(droidiga.otf) format("truetype");
+}
+   
+
+
+body {
+    font-family: "kimarche";
+	margin: 0;
+	padding: 0;
+	color:#fff;
+	overflow: hidden;
+    background-color:grey;
+}
+
+
+h1{
+    font-size: 4em;
+    font-family: "kimarche";
+    text-transform: uppercase;
+    padding-top: 1.8em;
+}
+
+h2 {
+    align-content: center;
+	margin-top:0;
+	font-size: 2em;
+	font-weight:bold;
+}
+
+a {
+	color:#fff;
+}
+
+video#bgvid {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+  background-size: cover;
+  opacity: 0.4;
+}
+
+#wrap {
+	position: relative;
+	top:0;
+	-webkit-transition: top 1.4s cubic-bezier(.49,.22,.52,1);
+	-moz-transition: top 1.4s cubic-bezier(.49,.22,.52,1.35);
+	-ms-transition: top 1.4s cubic-bezier(.49,.22,.52,1.35);
+	-o-transition: top 1.4s cubic-bezier(.49,.22,.52,1.35);
+	transition: top 1.4s cubic-bezier(.49,.22,.52,1.35);
+}
+
+#nav {
+    font-family: "kimarche";
+    width: 100%;
+    position: fixed;
+	padding: 1em 0;
+	background:rgba(255, 255, 255, 0);
+	font-size: 0.85em;
+    font-weight: 900;
+	z-index:10;
+    display: flex;
+    justify-content: space-between;
+}
+#nav li {
+	display: flex;
+	margin:0;
+    align-items: center;
+    justify-content: center;
+}
+#nav a {
+	display: flex;
+    margin : 0 2.8em;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+
+#logo img {
+    width: 12em;
+    height: auto;
+    margin-left: 0;
+    margin-top: 0.1em;
+}
+
+#social img {
+    width:3em;
+    padding-right: 0.1em; !important;
+}
+
+#slide1, #slide2, #slide3 {
+	height: 1000px;
+	padding-top:100px;
+	-webkit-transition: background-position 1.4s  cubic-bezier(.49,.22,.52,1);
+	-moz-transition: background-position 1.4s cubic-bezier(.49,.22,.52,1.35);
+	-ms-transition: background-position 1.4s  cubic-bezier(.49,.22,.52,1.35);
+	-o-transition: background-position 1.4s  cubic-bezier(.49,.22,.52,1.35);
+	transition: background-position 1.4s  cubic-bezier(.49,.22,.52,1.35);
+}
+
+.slide_inside {
+	width: 770px;
+	margin: 0 auto;
+	position: relative;
+	background-color: rgba(255, 255, 255, .3);
+	padding: 1em;
+    border-radius: 10px;
+}
+
+#slide1 .slide_inside {
+	text-align: center;
+	background-color: transparent;
+}
+#slide2 .slide_inside p {
+	width: 80%;
+	text-align: justify;
+    display: inline-block; 
+}
+#slide3 .slide_inside {
+	margin-top: 50px;
+}
+
+#s1:target ~ #wrap { top:0px; }
+
+#s2:target ~ #wrap { top:-1000px; }
+
+#s3:target ~ #wrap { top:-2150px; }
+
+
+
+
+/* Mask for background, by default is not display */
+#mask {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 999;
+}
+
+/* You can customize to your needs  */
+.login-popup {
+    display: none;
+    background: rgba(255, 255, 255, 1);
+    padding: 10px;
+    float: left;
+    font-size: 1.2em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+    border-radius: 4px;
+}
+
+
+.btn_close {
+	float: right;
+    margin: -28px -28px 0 0;
+}
+
+.close
+{
+    color:black;
+}
+
+fieldset {
+    border: none;
+}
+
+form.signin .textbox label {
+    display: block;
+    padding-bottom: 7px;
+}
+
+form.signin .textbox span {
+    display: block;
+}
+
+.textbox p{
+    margin-bottom: 0em;
+}
+form.signin .textbox input {
+    background: #fff;
+    border: 1px solid #828282;
+    padding: 6px 6px 4px;
+    width: 20em;
+    border-radius: 3px;
+    font-size: 0.6em;
+}
+
+
+form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #828282 !important;
+}
+
+form.signin input:-moz-placeholder {
+    color: #828282;
+    text-shadow: 0 0 2px #000;
+    font-size: 1em;
+}
+
+
+a .submit{
+    color: white;
+}
+
+.submit {
+    font-family: "kimarche";
+    background-color: #c55d5d;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 6px 4px;
+    margin-top: 10px;
+    font-size: 0.8em;
+    width: 100%;
+}
+
+.submit:hover {
+    background: #ddd;
+}
+
+.forgot{
+    font-family: "kimarche";
+    color: #c55d5d;
+    font-size: 0.8em;
+}
+
+.titleco{
+    font-family: "kimarche";
+    color: grey;
+    font-size: 0.85em;
+    text-align: center;
+    margin-top: 0.3em;
+}
+.submit_button{
+    background-color: #c55d5D !important;
+    font-family: "kimarche";
+    border-radius: 3px;
+    color: #fff !important;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+    font-size: 0,7em !important;
+    margin-right: 3px;
+    width: 101% !important;
+}
+.submit_button:hover {
+    opacity: 0.8;
+}
+
+.erreur_connexion{
+    color: #c55d5d;
+    font-size: 0.7em;
+    width: 18em;
+}
+
+

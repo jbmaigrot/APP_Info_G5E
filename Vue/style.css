@@ -1,0 +1,205 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	text-decoration: inherit;
+	color: inherit;
+	vertical-align: baseline;
+}
+*, *:before, *:after{
+	box-sizing:border-box;
+}
+@font-face {
+    font-family: "swag2";
+    src:url("test8.ttf");
+    }
+@font-face {
+    font-family: "droi";
+    src: url(droidiga.otf) format("truetype");
+}
+
+html{
+	margin:0;
+	padding:0;
+}
+body{
+	margin:0;
+	padding:0;
+	
+}
+
+header nav{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-image:linear-gradient(white, #CACACA);
+}
+
+header #logo{
+	width:10em;
+}
+header form{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-decoration: none;
+	font-size: 1em;
+	font-family: "swag2";
+	color:black;
+	margin-left: 1em;
+	margin-right: 1em;
+	font-weight: bold;
+}
+header .clear{
+	clear:both;
+
+}
+/*header nav{
+	width: 100%;
+	position:fixed;
+	top:0;
+	margin-bottom: 3em;*/
+}
+header .header-margin{
+	margin-bottom: 2em;
+}
+
+#page{
+	display:flex;
+	padding: 1em;
+ 	background-color:#CACACA;
+	width:100%;
+	min-height: 600px;
+	margin:auto;
+	font-family: "swag2";
+}
+
+.entete{
+	width: 80%;
+}
+.entete img{
+    width: 20%;
+    float: left;
+    border: 8px solid whitesmoke;
+    border-radius: 44px;
+}
+
+
+.entete h1{
+  	font-size: 70px;
+  	text-align: center;
+  	font-family: "swag2";
+    font-weight: bold;
+}
+.basdepage{
+	background-color:gray;
+	width:100%;
+	text-align: center;
+}
+
+.grouplist{
+	width: 20%;
+}
+.grouplist h1{
+	text-align: center;
+}
+.cadregroupe{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 0.5em;
+}
+.cadregroupe:hover{
+	background-color: #EAEAEA;
+}
+.eventlist{
+	width: 100%;
+	padding: 1em;
+}
+.cadregroupe p{
+	margin-left: 0.5em;
+	text-align: center;
+}
+.imagegroupelogo img{
+	width:40px;
+}
+.flag{
+}
+
+.cadreprofil{
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	justify-content: center;
+	margin-bottom: 0.5em;
+}
+
+.titre{
+	font-weight: bold;
+}
+
+.avatarpseudo{
+	display: flex;
+	align-items: center;
+}
+.cadreprofil div{
+	text-align: center;
+	padding: 0.5em;
+}
+.modifier{
+	text-align: right;
+}
+
+footer ul.basdepage{
+	clear:both;
+	background-image:linear-gradient(white,gray);
+	width:100%;
+	margin:auto;
+}
+footer h4{
+	color:Black;
+	font-size:14px;
+}
+footer p{
+	font-size:12px;
+	color:white;
+}
+footer ul.basdepage li {
+margin:auto;
+float:left;
+line-height: normal;
+width: 250px;
+display: block;
+text-decoration:none;
+margin:auto;
+padding:5px;
+text-align:justify;
+color:white;
+font-weight:normal;
+margin-left:61px;
+}
+#bloc1{
+	width: 770px;
+	margin: 0 auto;
+	position: relative;
+	background-color: rgba(255, 255, 255, .3);
+	padding: 1em;
+    border-radius: 10px;
+}
+}
