@@ -1,4 +1,4 @@
 <?php
- $mysqli = new mysqli('localhost', 'root', '', 'socia');
+ $BDD= new PDO('mysql:host=localhost; dbname=socia; charset=utf8', 'root');
  session_start();
  ?>

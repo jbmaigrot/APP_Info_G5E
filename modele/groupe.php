@@ -1,60 +1,128 @@
 <?php
 
-function recupere_membre(){
-	global $mysqli;
-	
-	$requete=$mysqli->query('SELECT id_membre FROM groupeuser WHERE id_groupe = "'.$_GET['id'].'"');
-	$idmembre = array();
-	while($infos=$requete->fetch_array()){
-		$idmembre[] = $infos;
-	}
-	return $idmembre;
+function recupere_membre($id){
+	global $BDD;
+	$stmt=$BDD->prepare('SELECT id_membre FROM groupeuser WHERE id_groupe = ?');
+	$stmt->execute(array($id));
+	$infos=$stmt->fetchAll();
+	return $infos;
 }
 //--------------------------------------------//
 function identifier_membre($id){
-	global $mysqli;
+	global $BDD;
 	
-	$requete=$mysqli->query('SELECT * FROM utilisateurs WHERE id = "'.$id.'"');
-	$membre = array();
-	while($infos=$requete->fetch_array()){
-		$membre[] = $infos;
-	}
-	return $membre;
+	$stmt=$BDD->prepare('SELECT * FROM utilisateurs WHERE id = ?');
+	$stmt->execute(array($id));
+	$infos=$stmt->fetch();
+	return $infos;
 }
 //-----------------------------------------------//
 function verifier_membre(){
-	global $mysqli;
+	global $BDD;
 	
-	$requete=$mysqli->query('SELECT id_membre FROM groupeuser WHERE id_groupe = "'.$_GET['id'].'" AND id_membre="'.$_SESSION['id'].'"');
-	$idmembre = array();
-	while($infos=$requete->fetch_array()){
-		$idmembre[] = $infos;
-	}
-	return $idmembre;
+	$stmt=$BDD->prepare('SELECT id_membre FROM groupeuser WHERE id_groupe = ? AND id_membre=?');
+	$stmt->execute(array($_GET['id'],$_SESSION['id']));
+	$infos=$stmt->fetchAll();
+	return $infos;
 }
+//------------------------------------------------//
 function lister_groupe(){
-	global $mysqli;
-	$requete=$mysqli->query("SELECT groupe.* FROM groupe  LEFT JOIN groupeuser  ON groupeuser.id_groupe = groupe.id ORDER BY groupeuser.id DESC");
-	$output = array();
-	while($infos=$requete->fetch_array()){
-		$output[] = $infos;
-	}
-	return $output;
+	global $BDD;
+	$stmt=$BDD->prepare("SELECT groupe.* FROM groupe  LEFT JOIN groupeuser  ON groupeuser.id_groupe = groupe.id ORDER BY groupeuser.id DESC");
+	$stmt->execute();
+	$infos=$stmt->fetchAll();
+	return $infos;
 }
+//------------------------------------------------//
 function dernier_groupe(){
-	global $mysqli;
-	$requete=$mysqli->query('SELECT * FROM groupe ORDER BY id DESC limit 3 ');
-	while($infos=$requete->fetch_array()){
-		$output[] = $infos;
+	global $BDD;
+	$stmt=$BDD->prepare('SELECT * FROM groupe ORDER BY id DESC limit 3 ');
+	$stmt->execute();
+	return $stmt->fetchAll();
+	
+		
 	}
-	return $output;
-}
+	
+//-------------------------------------------------//
 function dernier_groupe_dep($dep){
-	global $mysqli;
-	$requete=$mysqli->query('SELECT * FROM groupe WHERE departement="'.$dep.'" ORDER BY id DESC limit 3 ');
-	$output = array();
-	while($infos=$requete->fetch_array()){
-		$output[] = $infos;
-	}
-	return $output;
+	global $BDD;
+	$stmt=$BDD->prepare('SELECT * FROM groupe WHERE departement=? ORDER BY id DESC limit 3 ');
+	$stmt ->execute(array($dep));
+	
 }
+//------------------------------------------------//
+
+function creer_groupe ($nom,$sport,$nombre,$region, $departement, $description){
+	global $BDD;
+	$stmt=$BDD->prepare('INSERT INTO groupe(nom, sport,nombre_de_membres, id_region, departement, description)VALUES(:nom,:sport,:nombre_de_membres,:id_region,:departement,:description)');
+	$stmt ->execute(array($nom,$sport,$nombre,$region,$departement,$description));
+
+	return $BDD->LastInsertId();
+}
+//---------------------------------------------------------//
+
+function inserer_utilisateur_groupe ($id_utilisateur, $id_groupe){
+	global $BDD;
+
+	$stmt=$BDD->prepare('INSERT INTO groupeuser(id_membre,id_groupe)VALUES(?,?)');
+	$stmt ->execute(array($id_utilisateur,$id_groupe));
+}
+//-----------------------------------------------------------//
+function rechercheGroupe($recherche){
+global $BDD;
+	$stmt=$BDD->prepare("SELECT * FROM groupe where nom LIKE '%$recherche%'");
+	$stmt ->execute();
+	$infos=$stmt->fetchAll();
+	return $infos;
+}
+//----------------------------------------------------------//
+function supprimer_utilisateur_groupe ($id_utilisateur, $id_groupe){
+	global $BDD;
+
+	$stmt=$BDD->prepare('DELETE FROM groupeuser WHERE id_membre=? AND id_groupe =?');
+	$stmt ->execute(array($id_utilisateur,$id_groupe));
+}
+//-------------------------------------------------------------//
+
+function generer_groupe($id){
+global $BDD;
+$stmt=$BDD->prepare('SELECT * FROM groupe WHERE id = ?');
+$stmt ->execute(array($id));
+$infos=$stmt->fetch();
+return $infos;
+}
+//-------------------------------------------------------------//
+function inserer_message_groupe($id_utilisateur,$id_groupe,$content,$date){
+	global $BDD;
+	$stmt=$BDD->prepare('INSERT INTO groupepost(id_utilisateur,id_groupe,contenu,datepublication)VALUES(?,?,?,?)');
+	$stmt ->execute(array($id_utilisateur,$id_groupe,nl2br(htmlspecialchars($content)),$date));
+
+}
+
+ 
+//-------------------------------------------------------------//
+function recupere_sport(){
+	global $BDD;
+	$stmt=$BDD->prepare('SELECT nom FROM sport ORDER BY nom');
+	$stmt ->execute();
+	$infos=$stmt->fetchAll();
+	return $infos;
+}
+//-------------------------------------------------------------//
+ function recuperer_groupe($id_utilisateur){
+	global $BDD;
+	$stmt=$BDD->prepare("SELECT groupe.* FROM groupe  LEFT JOIN groupeuser  ON groupeuser.id_groupe = groupe.id WHERE groupeuser.id_membre = ?");
+	$stmt ->execute(array($id_utilisateur));
+	$infos=$stmt->fetchAll();
+	return $infos;
+
+}
+function lister_message($id){
+global $BDD;
+$stmt=$BDD->prepare('SELECT * FROM groupepost WHERE id_groupe = ? ORDER by id DESC');
+$stmt ->execute(array($id));
+$infos=$stmt->fetchAll();
+return $infos;
+
+}
+?>
