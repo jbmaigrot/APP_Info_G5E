@@ -33,7 +33,8 @@
                             <a href='?page=deconnexion'><?php echo $variable_header[5];?></a>
                             <a href="#">Groupes</a>
                             <a href="#">Nous découvrir</a>
-                            <a href='?page=connexion'>Connexion</a>
+                            <a href="#login-box" class="login-window">Connexion</a>
+                            <a href="#signin-box" class="signin-window">Inscription</a>
                     </form>
                 </nav>
             </header>
