@@ -51,6 +51,7 @@ header nav{
 }
 
 header #logo{
+	margin-top: 3px;
 	width:10em;
 }
 header form{
