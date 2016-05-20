@@ -1,18 +1,20 @@
 ﻿<?php
 //accueil
-$grp='Your Groups:';
+$variable_accueil=array(
+	1=>'Your Groups',
+	2=>'Your events');
 //recherche
 $src1='Search results';
 $src2='Matching search results';
 //creer groupe
 $creer_groupe=array(
-1=>'Group name',
-2=>'Sport',
-3=>'Number of members',
-4=>'Region',
-5=>'County',
-6=>'Description',
-7=>'Create');
+	1=>'Group name',
+	2=>'Sport',
+	3=>'Number of members',
+	4=>'Region',
+	5=>'County',
+	6=>'Description',
+	7=>'Create');
 
 //header
 $variable_header=array(

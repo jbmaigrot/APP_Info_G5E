@@ -22,17 +22,21 @@
         
         <div id="wrap">
             
-            <ul id="nav">
-    
-            <li id="logo"><a href="#"> <img src="vue/logoblanc.png" alt="accueil"></a></li>
-                <li><a href="#s1">Accueil</a></li>
-                <li><a href="#s2">Groupes</a></li>
-                <li><a href="#s3">Philosophie</a></li>
-                <li><a href="#login-box" class="login-window">Connexion</a></li>
-                <li><a href="#signin-box" class="signin-window">Inscription</a></li>
-                <li id="social"><a href="#"> <img src="vue/facebook.png" alt="accueil"></a></li>
-                <li id="social"><a href="#"> <img src="vue/twitter.png" alt="accueil"></a></li>
-            </ul>
+            <header>
+                <nav>
+                    <form method='get' action=''>
+                        <a href="?page=accueil"><img src="images/logo.png" id="logo"></a>
+                            <div class="flag">
+                                <a href="?lang=en"><img src="images/drapeauAnglais.png" style="width:30px"></a>
+                                <a href="?lang=fr"><img src="images/drapeauFrancais.png" style="width:30px"></a>
+                            </div>
+                            <a href='?page=deconnexion'><?php echo $variable_header[5];?></a>
+                            <a href="#">Groupes</a>
+                            <a href="#">Nous découvrir</a>
+                            <a href='?page=connexion'>Connexion</a>
+                    </form>
+                </nav>
+            </header>
             
                <div class="contenu">
                     <div id="slide1">

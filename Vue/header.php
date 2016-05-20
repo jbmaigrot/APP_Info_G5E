@@ -40,9 +40,7 @@
                     </div>
 			    </form>
 			</nav>
-		<div class="clear"></div>
-        <div class="header-margin"></div>
-	</header>
+		</header>
 	<div id="page">
 	
 		 

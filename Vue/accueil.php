@@ -3,7 +3,7 @@
 	<?php
         echo"
         <div class=grouplist>
-            <h1>Mes Groupes</h1>";
+            <h1>$variable_accueil[1]</h1>";
     		foreach ($mes_groupes as $le_groupe) {
             echo "
                 <div class='cadregroupe'>
@@ -20,13 +20,15 @@
         echo"
         </div>
         <div class='cadreevenement'>
-            Mes événements à venir :
+            $variable_accueil[2]
         </div>
         ";
 
     }
 else{
-    echo "<div class='cadregroupe'><h1 style='text-align:center;font-size:20px;'>Bienvenue à toi ".$_SESSION['pseudo']."</h1><br/> Nous sommes heureux de t’accueillir au sein de la communauté Socia ! 
+    echo "
+    <div class=disconnected>
+    <div><h1 style='text-align:center;font-size:20px;'>Bienvenue à toi ".$_SESSION['pseudo']."</h1><br/> Nous sommes heureux de t’accueillir au sein de la communauté Socia ! 
      Tu peux dès à présent créer un groupe planifier des évènements et y inviter tes amis, n’hésite pas à 
         inciter tes amis non-inscrits à rejoindre la plateforme . Tu peux aussi rejoindre des groupes déjà crées, et faire connaissance
      avec des membres qui habitent près de chez toi et partagent la même passion que toi !</div><HR width=100%>";
@@ -56,7 +58,9 @@ else{
             <tr>
                 <td>".utf8_encode(nl2br($le_groupe['description']))."</td>
             </tr>
-        </table></div><br/>";}
+        </table></div><br/>
+        </div>";}
+
     }
 }
     
