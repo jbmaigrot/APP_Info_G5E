@@ -1,11 +1,7 @@
  <?php
-include_once('modele/controle_id.php');
-include('modele/groupe.php');
-include_once('modele/creer_id.php');
-include_once('modele/inscription_id.php');
-include('modele/accueil.php');
-include('modele/recupere_region.php');
+
 $erreur_connexion='';
+$erreur_inscription='';
 $success=1;
 $groupe=dernier_groupe();
 $departement=listedepartement();
@@ -14,14 +10,21 @@ $departement=listedepartement();
 if(isset($_POST['mail']) AND isset ($_POST['pwd'])){
 
 	if (preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $_POST['mail'])) {
-	$infos=controle_id( $_POST['mail'], $_POST['pwd']);
+	$infos=controle_id( $_POST['mail']);
 		if (isset($infos['email'])){
+	if(password_verify($_POST['pwd'], $infos['motdepasse'])){
+	
 		 $erreur_connexion='great job';
 		 $_SESSION['id']=$infos['id'];
 		 $_SESSION['departement']=$infos['departement'];
 		 $_SESSION['pseudo']=$infos['pseudo'];
 		header('location:?page=accueil');
 		}
+		else{
+			$erreur_connexion='mot de passe incorrect ';
+		}
+	}
+
 
 
 		else{
@@ -47,41 +50,39 @@ elseif (isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['dep
 		if(strlen($_POST['pseudo'])<=20){
 		}
 		else{
-			$erreur_connexion='le pseudo doit être moins long' ;
+			$erreur_inscription='le pseudo doit être moins long' ;
 			$success=0;
 		}
 		if (preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $_POST['email'])) {
 			if (empty(inscription_id($_POST['email'],$_POST['pseudo']))){
 					}			
 					else{
-						$erreur_connexion='Adresse e-mail deja utilisé';
+						$erreur_inscription='Adresse e-mail deja utilisé';
 						$success=0;
 						}
 		}
 		else{
-			$erreur_connexion='Adresse e-mail invalide';
+			$erreur_inscription='Adresse e-mail invalide';
 						$success=0;
 
 			}
 		if($_POST['mot_de_passe']==$_POST['confirmation_mot_de_passe']){		
 		}
 		else{
-			$erreur_connexion='mot de passes non identiques';
+			$erreur_inscription='mot de passes non identiques';
 						$success=0;
 		}
 	}
 	else{
 	$success=0;
-	$erreur_connexion='tous les champs avec des * sont obligatoire';
+	$erreur_inscription='tous les champs avec des * sont obligatoire';
 				}
 				if ($success==1){
 					creer_id($_POST['pseudo'],$_POST['email'], $_POST['departement'],$_POST['mot_de_passe'],$_POST['sexe']);
-	
+					?><script>alert("inscription réussie")</script>;<?php
 			
 				}
-				echo $erreur_connexion;
-				echo $success;
-				var_dump($_POST);
+	// $erreur_inscription;			
 	}
 
 include('vue/COJS.php');

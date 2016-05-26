@@ -1,15 +1,12 @@
-
-		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
-		<script type="text/javascript" src="js/scipt.js"></script>
-
-		<link rel="stylesheet" href="#">
+<link rel="stylesheet" href="#">
 	 </head>
     <body>
-    	<div class>
+    	<div class='cadregroupe'>
     	<table>
     		
     		<form method="post" action="">
     			<pre >
+    				
 	    		<tr>
 	    			<td><?php echo $creer_groupe[1]; ?></td>
 	    			<td><input type ="text" name="nom_du_groupe"></td>
@@ -19,20 +16,20 @@
 	    			<td><Select name="sport" class="sport">
 	    				<option selected disabled>-----Sport-----</option>
 	    			 <?php foreach ($sport as $key => $value) {
-	    			 	echo'<option>'.utf8_encode($value['nom']).'</option>';
+	    			 	echo'<option>'.$value['nom'].'</option>';
 	    			 } ?>
 	    			</select></td>
 	    		</tr>
 	    		<tr>
 	    			<td><?php echo $creer_groupe[3]; ?></td>
-		    		<td><input type="number" name="nombre_de_membres" min="1"><</td>
+		    		<td><input type="number" name="nombre_de_membres" min="1"></td>
 	    		</tr>
 	    		<tr class="tableau">
 	    			<td><?php echo $creer_groupe[4]; ?></td>
 	    			<td><Select name="region" class="region">
 	    				<option selected disabled>----Region-----</option>
 	    			 <?php foreach ($region as $key => $value) {
-	    			 	echo'<option value="'.$value['id_region'].'">'.utf8_encode($value['region']).'</option>';
+	    			 	echo'<option value="'.$value['id_region'].'">'.$value['region'].'</option>';
 	    			 } ?>
 	    			</select>
 	    			<select class="departements" name="departement" style="display:none;"></select>

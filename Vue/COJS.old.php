@@ -19,28 +19,20 @@
         <span id="s2"></span>
         <span id="s3"></span>
         
-
+        
         <div id="wrap">
             
-            <header>
-                <nav>
-                    <form method='get' action=''>
-                        <a href="#s1"><img src="vue/logoblanc.png" id="logo"></a>
-                        <a href="#s2">Groupes</a>
-                        <a href="#s3">Nous découvrir</a>
-                        <a href="#login-box" class="login-window">Connexion</a>
-                        <a href="#signin-box" class="signin-window">Inscription</a>
-                        <div class="social">
-                            <a href="#"> <img src="vue/facebook.png" alt="accueil" style="width:50px"></a>
-                            <a href="#"> <img src="vue/twitter.png" alt="accueil" style="width:50px"></a>
-                        </div>
-                        <div class="flag">
-                            <a href="?lang=en"><img src="images/drapeauAnglais.png" style="width:50px"></a>
-                            <a href="?lang=fr"><img src="images/drapeauFrancais.png" style="width:50px"></a>
-                        </div>
-                    </form>
-                </nav>
-            </header>        
+            <ul id="nav">
+    
+                <li id="logo"><a href="#"> <img src="vue/logoblanc.png" alt="accueil"></a></li>
+                <li><a href="#s1">Accueil</a></li>
+                <li><a href="#s2">Groupes</a></li>
+                <li><a href="#s3">Philosophie</a></li>
+                <li><a href="#login-box" class="login-window">Connexion</a></li>
+                <li><a href="#signin-box" class="signin-window">Inscription</a></li>
+                <li id="social"><a href="#"> <img src="vue/facebook.png" alt="accueil"></a></li>
+                <li id="social"><a href="#"> <img src="vue/twitter.png" alt="accueil"></a></li>
+            </ul>
             
                <div class="contenu">
                     <div id="slide1">
@@ -54,7 +46,8 @@
                         <div class="slide_inside">
                             <h2 style="text-align:center">Les derniers groupes:</h2>
                             <HR width=100%>
-                                <div class="slide2left"><?php foreach ($groupe as $le_groupe){
+                                <div class="slide2left"><?php 
+                                foreach ($groupe as $le_groupe){
                                  echo "
                          <div class='cadregroupe'>
         
@@ -117,8 +110,8 @@ Plus de 100 sports proposés ! Que vous soyez débutant ou expert, vous trouvere
             <p class="titleco"><s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s>&nbsp;&nbsp;Inscription&nbsp;&nbsp;<s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</s></p>
             <form method="post" class="signin" action="#">
                 <fieldset class="textbox">
-                    <?php if(!empty($erreur_connexion)) { ?>
-                        <div class="erreur_connexion"><?php echo $erreur_connexion; ?></div>
+                    <?php if(!empty($erreur_inscription)) { ?>
+                        <div class="erreur_inscription"><?php echo $erreur_inscription; ?></div>
                     <?php } ?>
                     <label class="pseudo">
 
@@ -139,7 +132,7 @@ Plus de 100 sports proposés ! Que vous soyez débutant ou expert, vous trouvere
                         <input id="password" name="mot_de_passe" value="" type="password" placeholder="Mot de passe">
                     </label>
                     <label class="confirmpassword">
-                        <input id="confirmpassword" name="confirmation_mot_de_passe" value="" type="confirmpassword" placeholder="Confirmer le mot de passe">
+                        <input id="confirmpassword" name="confirmation_mot_de_passe" value="" type="password" placeholder="Confirmer le mot de passe">
                     </label>
                     <select name="sexe">
                     <option disabled selected>--Sexe--</option>

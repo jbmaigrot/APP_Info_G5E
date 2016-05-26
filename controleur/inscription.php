@@ -1,6 +1,5 @@
 <?php
-include_once('modele/creer_id.php');
-include_once('modele/inscription_id.php');
+
 
 $success=1;
 if (isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['ville'])AND isset($_POST['mot_de_passe'])AND isset($_POST['confirmation_mot_de_passe'])

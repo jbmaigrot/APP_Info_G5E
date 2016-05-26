@@ -16,7 +16,22 @@ function identifier_membre($id){
 	$infos=$stmt->fetch();
 	return $infos;
 }
+function supprimer_groupe($id){
+	global $BDD;
+	
+	$stmt=$BDD->prepare('DELETE FROM groupe WHERE id = ?');
+	$stmt->execute(array($id));
+}
 //-----------------------------------------------//
+function getStatut($id_groupe,$id_membre){
+	global $BDD;
+	
+	$stmt=$BDD->prepare('SELECT statut FROM groupeuser WHERE id_groupe = ? AND id_membre=?');
+	$stmt->execute(array($id_groupe,$id_membre));
+	$infos=$stmt->fetch();
+	return $infos;
+
+}
 function verifier_membre(){
 	global $BDD;
 	
@@ -54,18 +69,18 @@ function dernier_groupe_dep($dep){
 
 function creer_groupe ($nom,$sport,$nombre,$region, $departement, $description){
 	global $BDD;
-	$stmt=$BDD->prepare('INSERT INTO groupe(nom, sport,nombre_de_membres, id_region, departement, description)VALUES(:nom,:sport,:nombre_de_membres,:id_region,:departement,:description)');
+	$stmt=$BDD->prepare('INSERT INTO groupe(nom, sport,nombre_de_membres, id_region, departement, description)VALUES(?,?,?,?,?,?)');
 	$stmt ->execute(array($nom,$sport,$nombre,$region,$departement,$description));
 
 	return $BDD->LastInsertId();
 }
 //---------------------------------------------------------//
 
-function inserer_utilisateur_groupe ($id_utilisateur, $id_groupe){
+function inserer_utilisateur_groupe ($id_utilisateur, $id_groupe,$statut){
 	global $BDD;
 
-	$stmt=$BDD->prepare('INSERT INTO groupeuser(id_membre,id_groupe)VALUES(?,?)');
-	$stmt ->execute(array($id_utilisateur,$id_groupe));
+	$stmt=$BDD->prepare('INSERT INTO groupeuser(id_membre,id_groupe,statut)VALUES(?,?,?)');
+	$stmt ->execute(array($id_utilisateur,$id_groupe,$statut));
 }
 //-----------------------------------------------------------//
 function rechercheGroupe($recherche){
@@ -99,6 +114,7 @@ function inserer_message_groupe($id_utilisateur,$id_groupe,$content,$date){
 
 }
 
+
  
 //-------------------------------------------------------------//
 function recupere_sport(){
@@ -125,4 +141,17 @@ $infos=$stmt->fetchAll();
 return $infos;
 
 }
+function creer_event($nom, $sport,$date,$club,$descri,$niveau,$nbre,$id_groupe){
+	global $BDD;
+	$stmt=$BDD->prepare('INSERT INTO evenement(nom,sport,dateevent,club,description, niveau,nbremembre,id_groupe)VALUES(?,?,?,?,?,?,?,?)');
+	$stmt ->execute(array(htmlspecialchars($nom),$sport,$date,$club,htmlspecialchars($descri),$niveau,$nbre,$id_groupe));
+
+}
+function supprimer_message($id){
+	global $BDD;
+	
+	$stmt=$BDD->prepare('DELETE FROM groupe WHERE id = ?');
+	$stmt->execute(array($id));
+}
+
 ?>

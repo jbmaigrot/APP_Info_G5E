@@ -1,17 +1,15 @@
-<?php
-
-
-if(connecte()){
-	if (isset ($_GET['id_region'])){
-		$departement= recupere_dep($_GET['id_region']); 
-		echo '
-		<option>----Departement-----</option>';
-		foreach ($departement as $key => $output) {
-			echo'<option value="'.$output['departement'].'">'.$output['departement'].'</option>';
+<?php if(connecte()){
+	$groupe=generer_groupe($_GET['id']);
+	if ($groupe['photo']==null){
+			$photo="basique";
+		}
+		else{
+			$photo=$groupe['photo'];
 		}
 		
-		exit();
-	}
+	
+		
+		
 	
 	if (isset($_POST['nom_du_groupe']) AND isset($_POST['sport']) AND isset($_POST['nombre_de_membres'])AND isset($_POST['region'])
 	AND isset($_POST['description_groupe'])){
@@ -35,4 +33,4 @@ else{
 }
 
 
-include_once('vue/creer_groupe.php');
+include_once('vue/edit_groupe.php');?>

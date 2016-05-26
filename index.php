@@ -1,7 +1,11 @@
 <?php
 
 include 'modele/connexion_sql.php';
-include'modele/controle_id.php';
+include 'modele/groupe.php';
+include 'modele/utilisateur.php';
+include 'modele/geographie.php';
+include 'modele/sport.php';
+
 
 if(isset($_GET['page']) && !empty($_GET['page'])) {
 

@@ -1,7 +1,6 @@
 <?php 
 
-include('modele/accueil.php');
-include('modele/groupe.php');
+
 
 
 if (isset($_SESSION['id'])){

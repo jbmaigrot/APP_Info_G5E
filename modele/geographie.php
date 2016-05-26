@@ -20,15 +20,15 @@ function listedepartement(){
 //----------------------------//      
 
 function recupere_dep($id_region){
-	global $mysqli;
-	$requete=$mysqli->query('SELECT * FROM departement where id_region = "'.$id_region.'" ');
-	$output = array();
-	while($infos=$requete->fetch_array()){
-		$output[] = $infos;
-	}
-	return $output;
-
+	global $BDD;
+	$stmt=$BDD->prepare('SELECT * FROM departement where id_region = ?');
+	$stmt ->execute(array($id_region));
+	$infos=$stmt->fetchAll();
+	return $infos;
 
 }
+
+
+
 
 ?>

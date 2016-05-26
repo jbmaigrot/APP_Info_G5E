@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 01 Mai 2016 à 20:19
+-- Généré le :  Mer 25 Mai 2016 à 15:19
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -168,6 +168,35 @@ INSERT INTO `departement` (`id_departement`, `departement`, `id_region`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `evenement`
+--
+
+CREATE TABLE IF NOT EXISTS `evenement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `sport` varchar(255) NOT NULL,
+  `dateevent` datetime NOT NULL,
+  `club` text NOT NULL,
+  `description` text NOT NULL,
+  `niveau` varchar(255) NOT NULL,
+  `nbremembre` int(11) NOT NULL,
+  `id_groupe` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `evenement`
+--
+
+INSERT INTO `evenement` (`id`, `nom`, `sport`, `dateevent`, `club`, `description`, `niveau`, `nbremembre`, `id_groupe`) VALUES
+(1, '0', 'Accrobranche', '2017-06-17 12:15:00', '3rue Bayard', 'test descri test desci', 'Confirmé', 20, 31),
+(2, 'Test', 'Accrobranche', '2017-06-17 12:15:00', '3rue Bayard', 'test descri test desci', 'Confirmé', 20, 31),
+(3, 'Test', 'Accrobranche', '2017-06-17 12:15:00', '3rue Bayard', 'test descri test desci', 'Confirmé', 20, 31),
+(4, 'dgsdg', 'Aerobic sportive', '2016-07-03 17:15:00', '" RUE baYARD', 'RSOTZEPGT', 'intermédiaire', 15, 31);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `groupe`
 --
 
@@ -179,33 +208,71 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   `id_region` int(11) NOT NULL,
   `departement` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `photo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
 
 --
 -- Contenu de la table `groupe`
 --
 
-INSERT INTO `groupe` (`id`, `nom`, `sport`, `nombre_de_membres`, `id_region`, `departement`, `description`) VALUES
-(29, 'Les footeux de boulogne', 'Foot', 12, 12, 'Haut de seine', 'Salut à tous, \nCe groupe a pour but de permettre aux sportifs de se donner rendez-vous dans les haut de Seine pour des petits matchs le week-end.'),
-(30, 'Les rugbymans du 03', 'Rugby', 20, 3, 'Allier', 'Hey what''s up les potes j''ai décidé de créer ce groupe pour organiser des petites rencontres de rugby.Et pourquoi pas allez boire un verre tous ensemble après .'),
-(31, 'Handballeur de Vaureal', 'Handball', 10, 12, 'Val-d''Oise', 'C''est l''association de tous ceux qui font parti de la grande famille du handball . Le but est de vulgariser le hand et permettre à se sport de retrouver son lustre datant.'),
-(34, 'Les skieurs ', 'Ski alpin', 10, 2, 'Gironde', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n		    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n		    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n		    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-(39, 'ski', 'Football', 13, 3, 'Cantal', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n		    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n		    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-(40, 'bobo', 'foot', 22, 3, 'Haute-Loire', 'hey what''s up les potes\r\ndfsdfwx\r\ndfsdfd\r\ndf'),
-(41, 'rrrrrrr', 'handball', 13, 5, 'Cï¿½te-d''Or', 'rttetetete'),
-(42, 'seffr', 'rugby', 8, 4, 'Manche', 'efinefqefqs\r\nefqsfqs\r\nf\r\nqsfsq\r\nfsq\r\nfs\r\nfs\r\nf'),
-(43, 'SSD', 'foot', 4, 1, 'Bas-Rhin', 'DXQCDC'),
-(44, 'SSD', 'foot', 4, 6, 'Cï¿½tes-d''Armor', 'DXQCDC'),
-(45, 'SSD', 'foot', 4, 1, 'Bas-Rhin', 'DXQCDC'),
-(46, 'SSD', 'foot', 4, 2, '----Departement-----', 'DXQCDC'),
-(47, 'test', 'foot', 9, 1, 'Bas-Rhin', 'heysqfsqfqfqc\r\ndsqqsfsq\r\nsqfsq'),
-(48, 'bob', 'foot', 14, 2, 'Dordogne', 'salut test'),
-(49, 'Test2', 'foot', 8, 3, 'Cantal', 'tatata'),
-(50, 'tataland', 'handball', 8, 2, 'Dordogne', 'taland'),
-(51, 'ti', 'foot', 8, 2, 'Dordogne', 'rtgsdgeztg'),
-(52, 'tim', 'Aviation', 5, 5, 'Niï¿½vre', 'pilote'),
-(53, 'test', 'Ski alpin', 4, 1, 'Haut-Rhin', 'rstesdt');
+INSERT INTO `groupe` (`id`, `nom`, `sport`, `nombre_de_membres`, `id_region`, `departement`, `description`, `photo`) VALUES
+(30, 'Les rugbymans du 03', 'Rugby', 20, 12, 'Hauts-de-Seine', 'Hey what''s up les potes j''ai décidé de créer ce groupe pour organiser des petites rencontres de rugby.Et pourquoi pas allez boire un verre tous ensemble après .', ''),
+(34, 'Les skieurs ', 'Ski alpin', 10, 12, 'Hauts-de-Seine', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n		    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n		    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n		    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', ''),
+(39, 'Les footballeur ', 'Football', 13, 12, 'Hauts-de-Seine', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n		    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n		    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n		    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n		    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', ''),
+(58, 'ISEP', 'Handball', 14, 1, 'Bas-Rhin', 'ancien membre de l''isep', ''),
+(60, 'test', 'Agility', 5, 1, 'Haut-Rhin', 'dwef', ''),
+(61, 'titites234', 'Rugby', 14, 3, 'Cantal', 'qfojefopezfozefnzoefnezpof', ''),
+(62, 'test', 'Accrobranche', 5, 2, 'Gironde', 'oqpds,m', ''),
+(68, 'zfaz', 'Accrobranche', 7, 1, 'Bas-Rhin', 'qdvdvd', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `groupepost`
+--
+
+CREATE TABLE IF NOT EXISTS `groupepost` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_groupe` int(11) NOT NULL,
+  `contenu` text NOT NULL,
+  `datepublication` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
+
+--
+-- Contenu de la table `groupepost`
+--
+
+INSERT INTO `groupepost` (`id`, `id_utilisateur`, `id_groupe`, `contenu`, `datepublication`) VALUES
+(32, 18, 39, '<input type=''text''></input>', '2016-05-15 17:16:25'),
+(33, 18, 39, '&lt;input type=''text''&gt;&lt;/input&gt;', '2016-05-15 17:18:21'),
+(34, 18, 39, 'test<br />\r\ntest<br />\r\ntest<br />\r\n', '2016-05-15 17:19:02'),
+(35, 18, 39, 'test\r\ntest\r\ntest\r\n', '2016-05-15 17:19:22'),
+(36, 18, 39, '', '2016-05-15 17:20:18'),
+(37, 18, 39, 'test', '2016-05-15 17:28:05'),
+(38, 18, 39, 'test', '2016-05-15 17:29:16'),
+(39, 18, 39, 'test', '2016-05-15 17:29:40'),
+(40, 18, 39, 'ceci est un test', '2016-05-15 17:29:48'),
+(41, 18, 39, 'test', '2016-05-15 17:31:23'),
+(42, 18, 39, 'sgsd', '2016-05-15 17:39:03'),
+(43, 18, 39, 'sgsd', '2016-05-15 17:39:52'),
+(44, 18, 39, 'tes123', '2016-05-17 09:17:04'),
+(45, 18, 39, 'http://localhost/socia/?page=groupe&amp;id=34', '2016-05-17 09:28:42'),
+(46, 12, 30, 'blablabla', '2016-05-18 11:09:57'),
+(47, 12, 30, 'connard<br />\r\n', '2016-05-18 11:10:15'),
+(48, 12, 67, 'test', '2016-05-23 23:07:29'),
+(49, 12, 67, 'test<br />\r\n', '2016-05-23 23:07:36'),
+(50, 12, 67, 'fdbsf', '2016-05-23 23:09:51'),
+(51, 12, 66, 'test', '2016-05-24 09:09:52'),
+(52, 12, 66, 'test', '2016-05-24 09:27:57'),
+(53, 12, 68, 'testes', '2016-05-24 09:28:48'),
+(54, 12, 68, 'test<br />\r\n', '2016-05-24 09:30:51'),
+(55, 12, 68, 'test<br />\r\n', '2016-05-24 09:31:25'),
+(56, 12, 68, 'test<br />\r\n', '2016-05-24 09:32:34'),
+(57, 12, 68, 'test<br />\r\n', '2016-05-24 09:33:14'),
+(58, 12, 68, 'test<br />\r\n', '2016-05-24 09:34:20');
 
 -- --------------------------------------------------------
 
@@ -217,21 +284,27 @@ CREATE TABLE IF NOT EXISTS `groupeuser` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_membre` int(11) NOT NULL,
   `id_groupe` int(11) NOT NULL,
+  `statut` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Contenu de la table `groupeuser`
 --
 
-INSERT INTO `groupeuser` (`id`, `id_membre`, `id_groupe`) VALUES
-(1, 2, 34),
-(2, 2, 31),
-(3, 0, 46),
-(4, 1, 6),
-(7, 1, 39),
-(8, 1, 34),
-(10, 1, 31);
+INSERT INTO `groupeuser` (`id`, `id_membre`, `id_groupe`, `statut`) VALUES
+(32, 13, 30, ''),
+(33, 13, 34, ''),
+(34, 13, 39, ''),
+(36, 16, 39, ''),
+(37, 16, 58, ''),
+(38, 20, 34, ''),
+(46, 20, 58, ''),
+(47, 12, 0, ''),
+(54, 12, 64, 'invite'),
+(55, 12, 65, 'admin'),
+(56, 12, 66, 'admin'),
+(60, 12, 68, 'admin');
 
 -- --------------------------------------------------------
 
@@ -407,25 +480,38 @@ INSERT INTO `sport` (`id`, `Id_categorie`, `nom`, `image`) VALUES
 
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `ville` varchar(255) NOT NULL,
-  `motdepasse` varchar(255) NOT NULL,
-  `age` int(11) NOT NULL,
-  `photoprofile` text NOT NULL,
-  `sexe` varchar(255) NOT NULL,
   `pseudo` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `departement` varchar(255) NOT NULL,
+  `motdepasse` varchar(255) NOT NULL,
+  `sexe` varchar(255) NOT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `photoprofile` text,
+  `sport1` varchar(255) NOT NULL,
+  `niveau1` varchar(255) NOT NULL,
+  `sport2` varchar(255) NOT NULL,
+  `niveau2` varchar(255) NOT NULL,
+  `sport3` varchar(255) NOT NULL,
+  `niveau3` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `ville`, `motdepasse`, `age`, `photoprofile`, `sexe`, `pseudo`) VALUES
-(1, 'delmas', 'timothee', 'tim280@hotmail.fr', 'issy', 'tamtam', 22, '', '', 'titouille'),
-(3, 'titouille', '', '', '', '', 0, '', '', '');
+INSERT INTO `utilisateurs` (`id`, `pseudo`, `email`, `departement`, `motdepasse`, `sexe`, `nom`, `prenom`, `age`, `photoprofile`, `sport1`, `niveau1`, `sport2`, `niveau2`, `sport3`, `niveau3`) VALUES
+(12, 'Titouille1.0', 'tim280@hotmail.fr', 'Hauts-de-Seine', '$2y$10$PfPPeANlRS57WKxqsfVNPu6mF3/6w7biDeUjYDTwrFS.sCPN6jv4y', 'Homme', 'Delmas', 'Timothee', 22, NULL, '', '', '', '', '', ''),
+(13, 'Gonzague', 'gdemons@free.fr', 'Hauts-de-Seine', 'gonz', 'Autre', 'De monts', 'Gonzague', NULL, NULL, '', '', '', '', '', ''),
+(14, 'alex', 'alexandre.121095@gmail.com', 'Hauts-de-Seine', 'alex', 'Homme', NULL, NULL, NULL, NULL, '', '', '', '', '', ''),
+(15, 'Louis', 'louispetit@gmail.fr', 'Aisne', 'tamtam', 'Homme', NULL, NULL, NULL, NULL, '', '', '', '', '', ''),
+(16, 'titouille', 'tim240@hotmail.fr', 'Hauts-de-Seine', 'tamtam', 'Homme', NULL, NULL, NULL, NULL, '', '', '', '', '', ''),
+(17, 't', 'ti@hot.fr', 'Aisne', '$2y$10$O8jX6atL7w0LDgmz2gf2n.5aQouDsjvd/VQUSuht5cjiigFdAjC8i', 'Femme', NULL, NULL, NULL, NULL, '', '', '', '', '', ''),
+(18, 'ti', 'a@at.fr', 'Ain', '$2y$10$PfPPeANlRS57WKxqsfVNPu6mF3/6w7biDeUjYDTwrFS.sCPN6jv4y', 'Homme', NULL, NULL, NULL, 'test', '', '', '', '', '', ''),
+(19, 'titstou', 'a@hotmail.fr', 'Alpes-de-Haute-Provence', '$2y$10$ISqTmudj0oRq5IxlqSHkO.pAKaQxxLWMh1k5DsLUnBQdxj4oSxHp6', 'Homme', NULL, NULL, NULL, NULL, '', '', '', '', '', ''),
+(20, 'tim280', 'timotheedelmas@hotm.fr', 'Ain', '$2y$10$aX/WmKiyLrzBw2PpD.ET2.346tsdzOvDYg8wyQ2CCMaXS91n3pH4i', 'Homme', NULL, NULL, NULL, NULL, '', '', '', '', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

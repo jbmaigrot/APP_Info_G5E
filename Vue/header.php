@@ -16,7 +16,7 @@
 						<a href="?page=creer_groupe"><?php echo $variable_header[1];?></a>
 				    	<a href="#"><?php echo $variable_header[2];?></a>
 				    	<a href="#"><?php echo $variable_header[3];?></a>
-				    	<a href="?page=profil"><?php echo $variable_header[4];?></a>
+				    	<a href="?page=monprofile"><?php echo $variable_header[4];?></a>
 				    	<div class="flag">
 					    	<a href="?lang=en"><img src="images/drapeauAnglais.png" style="width:30px"></a>
 					    	<a href="?lang=fr"><img src="images/drapeauFrancais.png" style="width:30px"></a>
@@ -40,7 +40,9 @@
                     </div>
 			    </form>
 			</nav>
-		</header>
+		<div class="clear"></div>
+        <div class="header-margin"></div>
+	</header>
 	<div id="page">
 	
 		 

@@ -18,38 +18,9 @@ body {
 	overflow: hidden;
     background-color:grey;
 }
-
-header{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
+.imagegroupelogo img{
+    width:40px;
 }
-
-header nav{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header #logo{
-    margin-top: 3px;
-    width:10em;
-}
-header form{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1em;
-    font-family: "swag2";
-    color:black;
-    margin-left: 1em;
-    margin-right: 1em;
-    font-weight: bold;
-}
-
 
 h1{
     font-size: 4em;
@@ -67,7 +38,6 @@ h2 {
 
 a {
 	color:#fff;
-    text-decoration: none;
 }
 
 video#bgvid {
@@ -92,36 +62,37 @@ video#bgvid {
     font-family: "kimarche";
     width: 100%;
     position: fixed;
-    list-style: none;
+	padding: 1em 0;
+	margin:0;
 	background:rgba(255, 255, 255, 0);
 	font-size: 0.85em;
     font-weight: 900;
 	z-index:10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 #nav li {
+	display: inline-block;
 	margin:0;
-    align-items: center;
-    justify-content: center;
 }
 #nav a {
-	display: flex;
+	display: inline-block;
+    margin : 0 2.8em;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
+    vertical-align: middle;
 }
 
 
-#logo a img {
+#logo img {
     width: 12em;
     height: auto;
     margin-left: 0;
     margin-top: 0.1em;
 }
 
-
+#social img {
+    width:3em;
+}
 
 #slide1, #slide2, #slide3 {
 	height: 1000px;
@@ -178,7 +149,6 @@ video#bgvid {
     z-index: 999;
 }
 
-/* You can customize to your needs  */
 .login-popup {
     display: none;
     background: rgba(255, 255, 255, 1);
@@ -297,5 +267,9 @@ a .submit{
     font-size: 0.7em;
     width: 18em;
 }
-
+.erreur_inscription{
+    color: #c55d5d;
+    font-size: 0.7em;
+    width: 18em;
+}
 

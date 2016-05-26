@@ -42,8 +42,6 @@ body{
 	
 }
 
-
-
 header nav{
 	width: 100%;
 	display: flex;
@@ -53,7 +51,6 @@ header nav{
 }
 
 header #logo{
-	margin-top: 3px;
 	width:10em;
 }
 header form{
@@ -69,11 +66,11 @@ header form{
 	margin-right: 1em;
 	font-weight: bold;
 }
-/*header .clear{
+header .clear{
 	clear:both;
 
 }
-header nav{
+/*header nav{
 	width: 100%;
 	position:fixed;
 	top:0;
@@ -84,7 +81,6 @@ header .header-margin{
 }
 
 #page{
-	display:flex;
 	padding: 1em;
  	background-color:#CACACA;
 	width:100%;
@@ -117,7 +113,17 @@ header .header-margin{
 }
 
 .grouplist{
-	width: 20%;
+	width:30%;
+		display: inline-block;
+
+}
+.grouplist ul{
+	list-style: none;
+
+}
+.grouplist ul li{
+	list-style: none;
+
 }
 .grouplist h1{
 	text-align: center;
@@ -141,8 +147,6 @@ header .header-margin{
 }
 .imagegroupelogo img{
 	width:40px;
-}
-.flag{
 }
 
 .cadreprofil{
@@ -205,7 +209,18 @@ margin-left:61px;
 	padding: 1em;
     border-radius: 10px;
 }
-
+#mask {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 999;
+}
 .login-popup {
     display: none;
     background: rgba(255, 255, 255, 1);
@@ -218,3 +233,4 @@ margin-left:61px;
     z-index: 99999;
     border-radius: 4px;
 }
+

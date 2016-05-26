@@ -26,6 +26,7 @@
                     $('a.close, #mask').on('click', function() {
                         $('#mask , .login-popup').fadeOut(300, function() {
                             $('#mask').remove();
+                            $('.erreur_connexion').remove();
 
                         }); 
                         return false;
@@ -33,6 +34,11 @@
                     
                     return false;
                 });
+
+  if ($('.erreur_connexion').html() !=null){
+                $('a.login-window').trigger('click');}
+ 
+
                 $('a.signin-window').click(function() {
                     
                      //aucliquesurlelien 
@@ -64,7 +70,14 @@
                     
                     return false;
                 });
-            
+            if ($('.erreur_inscription').html() !=null){
+                $('a.signin-window').trigger('click');
+
+            }
+             if ($('.erreur_connexion').html() !=null){
+                $('a.login-window').trigger('click');
+
+            }
                
                 
             });

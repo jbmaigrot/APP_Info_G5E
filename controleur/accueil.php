@@ -1,6 +1,5 @@
 <?php 
-include('modele/accueil.php');
-include('modele/groupe.php');
+
 
 
 
