@@ -6,7 +6,7 @@
             <h1>$variable_accueil[1]</h1>";
     		foreach ($mes_groupes as $le_groupe) {
             echo "
-                <div class='cadregroupe'>
+                <a href=?page=groupe&id=".$le_groupe['id']." class='cadregroupe'>
                     <div class='imagegroupelogo'>"; 
                         if(!empty(img_groupe($le_groupe['sport']))){
                             $img = img_groupe($le_groupe['sport']);
@@ -14,13 +14,13 @@
                         
             echo "
                     </div>
-                    <p><a href=?page=groupe&id=".$le_groupe['id'].">".$le_groupe['nom']."</a></p>
-                </div>";
+                    <p>".$le_groupe['nom']."</p>
+                </a>";
             }
         echo"
         </div>
-        <div class='cadreevenement'>
-            $variable_accueil[2]
+        <div class='eventlist'>
+            <h1>$variable_accueil[2]<h1>
         </div>
         ";
 
@@ -66,24 +66,26 @@ else{
     
     
     if(isset($recherche)){
-        echo "<h2>".$src1."</h2></br>
-        <p>".$nbre_resultats.$src2 ;
+        echo "
+        <div class='recherche'>
+        <h1>".$nbre_resultats." ".$src2."</h1>" ;
 
    foreach ($recherche as $groupe) {
 
         echo "
-        <div class='cadregroupe'>
-        <table>
-        	<tr>
-        		<td><a href=?page=groupe&id=".$groupe['id'].">".utf8_encode($groupe['nom'])."</td>
-        	</tr>
-        	
-        </table>
-        </div>";
-        
+            <a href=?page=groupe&id=".$groupe['id']." class='cadregroupe'>
+                <div class='imagegroupelogo'>"; 
+                    if(!empty(img_groupe($groupe['sport']))){
+                        $img = img_groupe($groupe['sport']);
+                        echo $img['image'];}
+                    
+        echo "
+                </div>
+                <p>".utf8_encode($groupe['nom'])."</p>
+            </a>";
         
     }
-
+    echo"</div>";
     }; 
 ?>
 </div>
